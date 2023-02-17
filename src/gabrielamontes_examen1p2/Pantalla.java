@@ -77,13 +77,14 @@ public class Pantalla extends javax.swing.JFrame {
         Ingresar = new javax.swing.JFrame();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tf_buscarip = new javax.swing.JTextPane();
         jLabel6 = new javax.swing.JLabel();
         b_buscarip = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        B_Agregar = new javax.swing.JButton();
+        B_Ingresar = new javax.swing.JButton();
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane2.setBackground(new java.awt.Color(239, 239, 253));
 
@@ -217,41 +218,19 @@ public class Pantalla extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 623, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Laptop", jPanel4);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(420, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
-        );
+        jPanel2.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 511, -1));
 
         javax.swing.GroupLayout CRUDLayout = new javax.swing.GroupLayout(CRUD.getContentPane());
         CRUD.getContentPane().setLayout(CRUDLayout);
@@ -267,8 +246,7 @@ public class Pantalla extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(242, 220, 253));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane4.setViewportView(tf_buscarip);
-
+        jScrollPane4.setBackground(new java.awt.Color(234, 225, 243));
         jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 320, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -299,41 +277,29 @@ public class Pantalla extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 51));
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.setBackground(new java.awt.Color(102, 0, 102));
         jTabbedPane1.setForeground(new java.awt.Color(204, 204, 255));
 
-        jButton2.setText("Ingresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        B_Agregar.setText("Agregar");
+        B_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                B_AgregarActionPerformed(evt);
             }
         });
-        jTabbedPane1.addTab("tab2", jButton2);
+        jTabbedPane1.addTab("tab1", B_Agregar);
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        B_Ingresar.setText("Ingresar");
+        B_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                B_IngresarActionPerformed(evt);
             }
         });
-        jTabbedPane1.addTab("tab1", jButton1);
+        jTabbedPane1.addTab("tab2", B_Ingresar);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 402));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -349,17 +315,18 @@ public class Pantalla extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void B_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_AgregarActionPerformed
     CRUD.setLocationRelativeTo(this);
     CRUD.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_B_AgregarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void B_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_IngresarActionPerformed
      Ingresar.setLocationRelativeTo(this);
     Ingresar.setVisible(true);  
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_B_IngresarActionPerformed
 
     private void agregar_escritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_escritorioActionPerformed
+       JFrame.setVisible(false);  
         String ip="",red="",hn="",altipo="";
         int capram=0,capal=0;
         boolean targraf=true;
@@ -416,13 +383,18 @@ public class Pantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_agregar_laptopActionPerformed
 
     private void b_buscaripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscaripActionPerformed
-       String b=tf_buscarip.getText();
+       Ingresar.setVisible(false);
+       CRUD.setVisible(true);
+       JFrame.setVisible(true);
+        String b=b_buscarip.getText();
        PC p=new PC();
         for (PC pc : pcs) {
             if (pc.getIP().equals(b)) {
                 p=pc;
             }
         }
+        System.out.println(p.getHostname()+" #");
+        
         
     }//GEN-LAST:event_b_buscaripActionPerformed
 
@@ -462,14 +434,14 @@ public class Pantalla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_Agregar;
+    private javax.swing.JButton B_Ingresar;
     private javax.swing.JFrame CRUD;
     private javax.swing.JFrame Ingresar;
     private javax.swing.JSpinner S_capram;
     private javax.swing.JButton agregar_escritorio;
     private javax.swing.JButton agregar_laptop;
     private javax.swing.JButton b_buscarip;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -505,7 +477,6 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JSpinner s_capal;
-    private javax.swing.JTextPane tf_buscarip;
     private javax.swing.JTextPane tf_defpanlaptop;
     private javax.swing.JTextPane tf_direccionip;
     private javax.swing.JTextPane tf_direccioniplaptop;
