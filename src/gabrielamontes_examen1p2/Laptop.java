@@ -9,5 +9,7 @@ package gabrielamontes_examen1p2;
  * @author Gabriela Montes
  */
 public class Laptop {
-    
+        private String Marca;
+        private String defpantalla;
+        private boolean RGB;
 }

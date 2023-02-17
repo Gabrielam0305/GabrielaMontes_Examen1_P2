@@ -48,7 +48,7 @@ public class PC {
 
     @Override
     public String toString() {
-        return this.hostname+this.IP+this.masacara;
+        return this.hostname+" "+this.IP+" "+this.masacara;
     }
     
 }

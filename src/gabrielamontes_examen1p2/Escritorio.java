@@ -12,12 +12,12 @@ public class Escritorio extends PC {
     private int Ram;
     private int almacenamiento;
     private String tipoA;
-    private String tarjeta;
+    private boolean tarjeta;
 
     public Escritorio() {
     }
 
-    public Escritorio(int Ram, int almacenamiento, String tipoA, String tarjeta, String IP, String masacara, String hostname) {
+    public Escritorio(int Ram, int almacenamiento, String tipoA,boolean tarjeta, String IP, String masacara, String hostname) {
         super(IP, masacara, hostname);
         this.Ram = Ram;
         this.almacenamiento = almacenamiento;
@@ -49,13 +49,15 @@ public class Escritorio extends PC {
         this.tipoA = tipoA;
     }
 
-    public String getTarjeta() {
+    public boolean isTarjeta() {
         return tarjeta;
     }
 
-    public void setTarjeta(String tarjeta) {
+    public void setTarjeta(boolean tarjeta) {
         this.tarjeta = tarjeta;
     }
+
+    
 
     @Override
     public String toString() {
