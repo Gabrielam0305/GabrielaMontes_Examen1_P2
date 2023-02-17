@@ -21,7 +21,7 @@ public class Escritorio extends PC {
         super(IP, masacara, hostname);
         this.Ram = Ram;
         this.almacenamiento = almacenamiento;
-        this.tipoA = tipoA;
+        this.setTipoA(tipoA);
         this.tarjeta = tarjeta;
     }
 
@@ -46,7 +46,9 @@ public class Escritorio extends PC {
     }
 
     public void setTipoA(String tipoA) {
-        this.tipoA = tipoA;
+        if (tipoA.equals("HDD")||tipoA.equals("SSD")) {
+            this.tipoA = tipoA;
+        }
     }
 
     public boolean isTarjeta() {
@@ -61,7 +63,7 @@ public class Escritorio extends PC {
 
     @Override
     public String toString() {
-        return super.toString()+" "+this.Ram+" "+this.almacenamiento+" "+this.tipoA+" "+this.tarjeta;
+        return super.toString()+" "+this.Ram+" "+this.almacenamiento+" "+this.tipoA+" "+this.tarjeta+"\n";
     }
     
 }

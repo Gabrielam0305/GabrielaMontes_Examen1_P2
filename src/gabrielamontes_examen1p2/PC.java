@@ -50,5 +50,16 @@ public class PC {
     public String toString() {
         return this.hostname+" "+this.IP+" "+this.masacara;
     }
+    public void ping (String IP, PC pc){
+      String[]sep=IP.split(".");
+            
+            
+        }
+         while (acum>0) {            
+            acum=acum/2;
+            int a=acum%2;
+            binarionew.add(0, a);
+        }
+    }
     
 }

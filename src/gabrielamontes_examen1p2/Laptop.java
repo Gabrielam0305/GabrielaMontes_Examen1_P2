@@ -49,7 +49,7 @@ public class Laptop extends PC{
 
     @Override
     public String toString() {
-        return super.toString()+" "+Marca + " " + defpantalla + " " + RGB;
+        return super.toString()+" "+this.Marca + " " + this.defpantalla + " " + this.RGB+"\n";
     }
         
 }

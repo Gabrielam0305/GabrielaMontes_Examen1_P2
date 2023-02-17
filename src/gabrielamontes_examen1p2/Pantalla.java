@@ -74,6 +74,13 @@ public class Pantalla extends javax.swing.JFrame {
         jScrollPane16 = new javax.swing.JScrollPane();
         tf_rgblaptop = new javax.swing.JTextPane();
         agregar_laptop = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ta_lista = new javax.swing.JTextArea();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        b_borrarcrud = new javax.swing.JButton();
+        s_pos = new javax.swing.JSpinner();
         Ingresar = new javax.swing.JFrame();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -83,8 +90,6 @@ public class Pantalla extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         B_Agregar = new javax.swing.JButton();
         B_Ingresar = new javax.swing.JButton();
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane2.setBackground(new java.awt.Color(239, 239, 253));
 
@@ -142,12 +147,17 @@ public class Pantalla extends javax.swing.JFrame {
         agregar_escritorio.setBackground(new java.awt.Color(176, 176, 255));
         agregar_escritorio.setForeground(new java.awt.Color(255, 255, 255));
         agregar_escritorio.setText("Agregar");
+        agregar_escritorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregar_escritorioMouseClicked(evt);
+            }
+        });
         agregar_escritorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregar_escritorioActionPerformed(evt);
             }
         });
-        jPanel3.add(agregar_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 332, 121, -1));
+        jPanel3.add(agregar_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 121, -1));
         jPanel3.add(S_capram, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 170, 325, -1));
         jPanel3.add(s_capal, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 205, 324, -1));
 
@@ -207,12 +217,17 @@ public class Pantalla extends javax.swing.JFrame {
         agregar_laptop.setBackground(new java.awt.Color(176, 176, 255));
         agregar_laptop.setForeground(new java.awt.Color(255, 255, 255));
         agregar_laptop.setText("Agregar");
+        agregar_laptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregar_laptopMouseClicked(evt);
+            }
+        });
         agregar_laptop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregar_laptopActionPerformed(evt);
             }
         });
-        jPanel6.add(agregar_laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 340, 121, -1));
+        jPanel6.add(agregar_laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 121, -1));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -224,13 +239,93 @@ public class Pantalla extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Laptop", jPanel4);
 
-        jPanel2.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 511, -1));
+        jPanel7.setBackground(new java.awt.Color(220, 239, 220));
+
+        ta_lista.setColumns(20);
+        ta_lista.setRows(5);
+        jScrollPane5.setViewportView(ta_lista);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Listar", jPanel7);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel7.setText("Ingrese la posición que desea borrar:");
+
+        b_borrarcrud.setText("Borrar");
+        b_borrarcrud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_borrarcrudMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(b_borrarcrud)
+                .addGap(57, 57, 57))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(s_pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(233, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(s_pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(b_borrarcrud)
+                .addGap(27, 27, 27))
+        );
+
+        jTabbedPane2.addTab("Borrar", jPanel8);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout CRUDLayout = new javax.swing.GroupLayout(CRUD.getContentPane());
         CRUD.getContentPane().setLayout(CRUDLayout);
@@ -247,38 +342,42 @@ public class Pantalla extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane4.setBackground(new java.awt.Color(234, 225, 243));
-        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 320, 30));
+        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 320, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setText("Ingresar direccion IP:");
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         b_buscarip.setBackground(new java.awt.Color(215, 175, 255));
         b_buscarip.setForeground(new java.awt.Color(255, 255, 255));
         b_buscarip.setText("Buscar");
+        b_buscarip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b_buscaripMouseClicked(evt);
+            }
+        });
         b_buscarip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_buscaripActionPerformed(evt);
             }
         });
-        jPanel5.add(b_buscarip, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
+        jPanel5.add(b_buscarip, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 323, 90, 30));
 
         javax.swing.GroupLayout IngresarLayout = new javax.swing.GroupLayout(Ingresar.getContentPane());
         Ingresar.getContentPane().setLayout(IngresarLayout);
         IngresarLayout.setHorizontalGroup(
             IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
         );
         IngresarLayout.setVerticalGroup(
             IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 51));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 0, 102));
         jTabbedPane1.setForeground(new java.awt.Color(204, 204, 255));
@@ -299,7 +398,16 @@ public class Pantalla extends javax.swing.JFrame {
         });
         jTabbedPane1.addTab("tab2", B_Ingresar);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 402));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,7 +434,33 @@ public class Pantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_B_IngresarActionPerformed
 
     private void agregar_escritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_escritorioActionPerformed
-       JFrame.setVisible(false);  
+       
+    }//GEN-LAST:event_agregar_escritorioActionPerformed
+
+    private void agregar_laptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_laptopActionPerformed
+        
+    }//GEN-LAST:event_agregar_laptopActionPerformed
+
+    private void b_buscaripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscaripActionPerformed
+ 
+    }//GEN-LAST:event_b_buscaripActionPerformed
+
+    private void b_buscaripMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_buscaripMouseClicked
+        Ingresar.setVisible(false);
+       CRUD.setVisible(false);
+      this.setVisible(false);
+        String b=b_buscarip.getText();
+       PC p=new PC();
+        for (PC pc : pcs) {
+            if (pc.getIP().equals(b)) {
+                p=pc;
+            }
+        }
+        System.out.println(p.getHostname()+" #");
+    }//GEN-LAST:event_b_buscaripMouseClicked
+
+    private void agregar_escritorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_escritorioMouseClicked
+        this.setVisible(false);  
         String ip="",red="",hn="",altipo="";
         int capram=0,capal=0;
         boolean targraf=true;
@@ -352,11 +486,13 @@ public class Pantalla extends javax.swing.JFrame {
         S_capram.setValue(0);
         s_capal.setValue(0);
         tf_targraf.setText("");
-         
-    }//GEN-LAST:event_agregar_escritorioActionPerformed
+        CRUD.setVisible(false);
+         this.setVisible(true); 
+    }//GEN-LAST:event_agregar_escritorioMouseClicked
 
-    private void agregar_laptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_laptopActionPerformed
-       String ip="",red="",hn="",marca="",defpan="";
+    private void agregar_laptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_laptopMouseClicked
+      this.setVisible(false); 
+        String ip="",red="",hn="",marca="",defpan="";
         boolean rgb=true;
         ip=tf_direccioniplaptop.getText();
         red=tf_mascaraderedlaptop.getText();
@@ -380,23 +516,14 @@ public class Pantalla extends javax.swing.JFrame {
         tf_marcalaptop.setText("");
         tf_defpanlaptop.setText("");
         tf_rgblaptop.setText("");
-    }//GEN-LAST:event_agregar_laptopActionPerformed
+        CRUD.setVisible(false);
+        this.setVisible(true); 
+    }//GEN-LAST:event_agregar_laptopMouseClicked
 
-    private void b_buscaripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscaripActionPerformed
-       Ingresar.setVisible(false);
-       CRUD.setVisible(true);
-       JFrame.setVisible(true);
-        String b=b_buscarip.getText();
-       PC p=new PC();
-        for (PC pc : pcs) {
-            if (pc.getIP().equals(b)) {
-                p=pc;
-            }
-        }
-        System.out.println(p.getHostname()+" #");
-        
-        
-    }//GEN-LAST:event_b_buscaripActionPerformed
+    private void b_borrarcrudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_borrarcrudMouseClicked
+       int pos=Integer.parseInt(s_pos.getValue().toString());
+       
+    }//GEN-LAST:event_b_borrarcrudMouseClicked
 
     /**
      * @param args the command line arguments
@@ -441,6 +568,7 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JSpinner S_capram;
     private javax.swing.JButton agregar_escritorio;
     private javax.swing.JButton agregar_laptop;
+    private javax.swing.JButton b_borrarcrud;
     private javax.swing.JButton b_buscarip;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -455,6 +583,7 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -462,6 +591,8 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -473,10 +604,13 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JSpinner s_capal;
+    private javax.swing.JSpinner s_pos;
+    private javax.swing.JTextArea ta_lista;
     private javax.swing.JTextPane tf_defpanlaptop;
     private javax.swing.JTextPane tf_direccionip;
     private javax.swing.JTextPane tf_direccioniplaptop;
