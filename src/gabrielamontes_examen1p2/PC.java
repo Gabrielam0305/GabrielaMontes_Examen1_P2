@@ -55,11 +55,11 @@ public class PC {
             
             
         }
-         while (acum>0) {            
+        /* while (acum>0) {            
             acum=acum/2;
             int a=acum%2;
             binarionew.add(0, a);
-        }
-    }
+        }*/
+    //}
     
 }

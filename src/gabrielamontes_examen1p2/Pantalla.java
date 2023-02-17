@@ -83,15 +83,23 @@ public class Pantalla extends javax.swing.JFrame {
         s_pos = new javax.swing.JSpinner();
         Ingresar = new javax.swing.JFrame();
         jPanel5 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
         jLabel6 = new javax.swing.JLabel();
         b_buscarip = new javax.swing.JButton();
+        tf_ipingresado = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         B_Agregar = new javax.swing.JButton();
         B_Ingresar = new javax.swing.JButton();
 
         jTabbedPane2.setBackground(new java.awt.Color(239, 239, 253));
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseEntered(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(238, 238, 253));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -245,9 +253,11 @@ public class Pantalla extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Laptop", jPanel4);
 
-        jPanel7.setBackground(new java.awt.Color(220, 239, 220));
+        jPanel7.setBackground(new java.awt.Color(234, 252, 234));
 
+        ta_lista.setBackground(new java.awt.Color(239, 252, 239));
         ta_lista.setColumns(20);
+        ta_lista.setForeground(new java.awt.Color(255, 255, 255));
         ta_lista.setRows(5);
         jScrollPane5.setViewportView(ta_lista);
 
@@ -270,9 +280,12 @@ public class Pantalla extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Listar", jPanel7);
 
+        jPanel8.setBackground(new java.awt.Color(250, 250, 224));
+
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Ingrese la posición que desea borrar:");
 
+        b_borrarcrud.setBackground(new java.awt.Color(255, 255, 204));
         b_borrarcrud.setText("Borrar");
         b_borrarcrud.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -341,9 +354,6 @@ public class Pantalla extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(242, 220, 253));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane4.setBackground(new java.awt.Color(234, 225, 243));
-        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 320, 30));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setText("Ingresar direccion IP:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
@@ -362,6 +372,7 @@ public class Pantalla extends javax.swing.JFrame {
             }
         });
         jPanel5.add(b_buscarip, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 323, 90, 30));
+        jPanel5.add(tf_ipingresado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 340, -1));
 
         javax.swing.GroupLayout IngresarLayout = new javax.swing.GroupLayout(Ingresar.getContentPane());
         Ingresar.getContentPane().setLayout(IngresarLayout);
@@ -449,7 +460,7 @@ public class Pantalla extends javax.swing.JFrame {
         Ingresar.setVisible(false);
        CRUD.setVisible(false);
       this.setVisible(false);
-        String b=b_buscarip.getText();
+        String b=tf_ipingresado.getText();
        PC p=new PC();
         for (PC pc : pcs) {
             if (pc.getIP().equals(b)) {
@@ -522,8 +533,17 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void b_borrarcrudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_borrarcrudMouseClicked
        int pos=Integer.parseInt(s_pos.getValue().toString());
-       
+       pcs.remove(pos);
+       JOptionPane.showConfirmDialog(this, "PC eliminada");
     }//GEN-LAST:event_b_borrarcrudMouseClicked
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+      ta_lista.setText(pcs.toString());
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
+    private void jTabbedPane2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseEntered
+
+    }//GEN-LAST:event_jTabbedPane2MouseEntered
 
     /**
      * @param args the command line arguments
@@ -603,7 +623,6 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -616,6 +635,7 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JTextPane tf_direccioniplaptop;
     private javax.swing.JTextPane tf_hostname;
     private javax.swing.JTextPane tf_hostnamelaptop;
+    private javax.swing.JTextField tf_ipingresado;
     private javax.swing.JTextPane tf_marcalaptop;
     private javax.swing.JTextPane tf_mascaradered;
     private javax.swing.JTextPane tf_mascaraderedlaptop;
