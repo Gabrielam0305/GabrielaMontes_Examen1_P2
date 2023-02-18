@@ -56,43 +56,18 @@ public class PC {
         ArrayList<Integer>binario=new ArrayList(); 
         ArrayList<Integer>binarionew=new ArrayList(); 
         ArrayList<Integer>binariomasc=new ArrayList();
-      String[]sep=IP.split(".");
-       String[]sep3=pc.getMasacara().split(".");
-      String []sep2=pc.getIP().split(".");
-      boolean e=false;
-        if (sep[0]==sep2[0]) {
-            if ((sep[1]==sep2[1]) ) {
-                if ((sep[2]==sep2[2]) ) {
-                        e=true;
-                }else{
-             System.out.println("Pinging to "+IP+" with 32 bits of data: ");
-                 for (int i = 0; i < 4; i++) {
-                     System.out.println("Reply from "+IP+": Destination host unreachable");
-                 }
-                 System.out.println("Ping statistics for "+IP+": ");
-                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
-                 System.out.println(pc.getHostname()+"#");
+          String[]sep=IP.split("\\.");
+       String[]sep3=pc.getMasacara().split("\\.");
+      String []sep2=pc.getIP().split("\\.");
+        int cont=0;
+       for (int i = 0; i < 3; i++) {
+            if (sep[i].equals(sep2[i])) {
+                cont+=1;
+            }
         }
-            }else{
-             System.out.println("Pinging to "+IP+" with 32 bits of data: ");
-                 for (int i = 0; i < 4; i++) {
-                     System.out.println("Reply from "+IP+": Destination host unreachable");
-                 }
-                 System.out.println("Ping statistics for "+IP+": ");
-                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
-                 System.out.println(pc.getHostname()+"#");
-        }
-        }else{
-             System.out.println("Pinging to "+IP+" with 32 bits of data: ");
-                 for (int i = 0; i < 4; i++) {
-                     System.out.println("Reply from "+IP+": Destination host unreachable");
-                 }
-                 System.out.println("Ping statistics for "+IP+": ");
-                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
-                 System.out.println(pc.getHostname()+"#");
-        }
-        if (e==true) {
-            int dec1=Integer.parseInt(sep[3]);
+   
+        if (cont==3) {
+             int dec1=Integer.parseInt(sep[3]);
             int dec2=Integer.parseInt(sep2[3]);
             int dec3=Integer.parseInt(sep3[3]);
             while (dec1>0) {            
@@ -132,12 +107,23 @@ public class PC {
                  }
                  System.out.println("Ping statistics for "+IP+": ");
                  System.out.println("Packets: Sent=4, received= 4, Lost=0(0% loss)");
-                 System.out.println(pc.getHostname()+"#");
+                // System.out.println(pc.getHostname()+"#");
             }
+        }else{
+            System.out.println("Pinging to "+IP+" with 32 bits of data: ");
+                 for (int i = 0; i < 4; i++) {
+                     System.out.println("Reply from "+IP+": Destination host unreachable");
+                 }
+                 System.out.println("Ping statistics for "+IP+": ");
+                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
+                // System.out.println(pc.getHostname()+"#"); 
+        }
+        
+        
              
         }
         
         
-    //}
+
     }
-}
+

@@ -4,7 +4,6 @@
  */
 package gabrielamontes_examen1p2;
 
-import static gabrielamontes_examen1p2.Pantalla.entrada;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -462,36 +461,14 @@ public class Pantalla extends javax.swing.JFrame {
         Ingresar.setVisible(false);
        CRUD.setVisible(false);
       this.setVisible(false);
-        String b=tf_ipingresado.getText();
-        PC f=new PC();
-        for (PC pc : pcs) {
-            if (b.equals(pc.getIP())) {
-                f=pc;
-            }
-        }
-        
-        boolean existe=false;
-        for (PC pc : pcs) {
-            if (tf_ipingresado.equals(pc.getIP())) {
-                existe=true;
-            }
-        }
-        if (existe==false) {
-                 System.out.println("Pinging to "+tf_ipingresado+" with 32 bits of data: ");
-                 for (int i = 0; i < 4; i++) {
-                     System.out.println("Request timed out");
-                 }
-                 System.out.println("Ping statistics for "+tf_ipingresado+": ");
-                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
-                 System.out.println(f.getHostname()+"#");
-        }
+        String ipingresadogui=tf_ipingresado.getText();   
        PC p=new PC();
         for (PC pc : pcs) {
-            if (pc.getIP().equals(b)) {
+            if (pc.getIP().equals(ipingresadogui)) {
                 p=pc;
             }
         }
-        entrada(pcs, p);
+        comando(pcs, p);
     }//GEN-LAST:event_b_buscaripMouseClicked
 
     private void agregar_escritorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_escritorioMouseClicked
@@ -674,26 +651,55 @@ public class Pantalla extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 //ArrayLists
     ArrayList<PC> pcs=new ArrayList();
-    public static void entrada(ArrayList<PC> pcs, PC pc){
+    public void entrada(ArrayList<PC> pcs, PC pc){
         Scanner entrada=new Scanner(System.in);
         System.out.println("Ingrese el nuevo ip");
-        String d=entrada.nextLine();
+        String laentradaenconsola=entrada.nextLine();
          boolean existe=false;
         for (PC p : pcs) {
-            if (d.equals(pc.getIP())) {
+            if (laentradaenconsola.equals(pc.getIP())) {
                 existe=true;
             }
         }
         if (existe==false) {
-                 System.out.println("Pinging to "+d+" with 32 bits of data: ");
+                 System.out.println("Pinging to "+laentradaenconsola+" with 32 bits of data: ");
                  for (int i = 0; i < 4; i++) {
                      System.out.println("Request timed out");
                  }
-                 System.out.println("Ping statistics for "+d+": ");
+                 System.out.println("Ping statistics for "+laentradaenconsola+": ");
                  System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
-                 System.out.println(pc.getHostname()+"#");
+                comando(pcs, pc);
+                // System.out.println(pc.getHostname()+"#");
+        }else{
+        pc.ping (laentradaenconsola, pc);
+        comando(pcs, pc);
         }
-        pc.ping (d, pc);
       
     }
+    public void comando(ArrayList<PC> pcs, PC p){
+        Scanner entrada=new Scanner(System.in);
+        
+        System.out.print(p.getHostname()+"#");
+        String comandonew=entrada.nextLine();
+        if (comandonew.equalsIgnoreCase("Show")) {
+            show(p);
+        }else if(comandonew.equalsIgnoreCase("Exit")) {
+            exit();
+        }else if(comandonew.equalsIgnoreCase("ping")) {
+             entrada(pcs, p);
+        }else{
+            System.out.println("Comando no valido");
+        }
+      
+      
+    }
+    public void show( PC p){
+            System.out.println("IP:"+p.getIP());
+            System.out.println("Mascara de red"+p.getMasacara());
+            comando(pcs, p);
+    }
+    public void exit( ){
+           this.setVisible(true);
+    }
+
 }
