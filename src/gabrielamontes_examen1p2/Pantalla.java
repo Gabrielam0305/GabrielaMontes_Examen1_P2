@@ -78,6 +78,7 @@ public class Pantalla extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         ta_lista = new javax.swing.JTextArea();
+        B_listarcrudnew = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         b_borrarcrud = new javax.swing.JButton();
@@ -93,14 +94,6 @@ public class Pantalla extends javax.swing.JFrame {
         B_Ingresar = new javax.swing.JButton();
 
         jTabbedPane2.setBackground(new java.awt.Color(239, 239, 253));
-        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jTabbedPane2MouseEntered(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(238, 238, 253));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,13 +255,26 @@ public class Pantalla extends javax.swing.JFrame {
         ta_lista.setRows(5);
         jScrollPane5.setViewportView(ta_lista);
 
+        B_listarcrudnew.setBackground(new java.awt.Color(204, 255, 204));
+        B_listarcrudnew.setText("Listar");
+        B_listarcrudnew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_listarcrudnewMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_listarcrudnew, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -276,7 +282,9 @@ public class Pantalla extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(B_listarcrudnew, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Listar", jPanel7);
@@ -543,13 +551,9 @@ public class Pantalla extends javax.swing.JFrame {
        
     }//GEN-LAST:event_b_borrarcrudMouseClicked
 
-    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
-      ta_lista.setText(pcs.toString());
-    }//GEN-LAST:event_jTabbedPane2MouseClicked
-
-    private void jTabbedPane2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseEntered
-
-    }//GEN-LAST:event_jTabbedPane2MouseEntered
+    private void B_listarcrudnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_listarcrudnewMouseClicked
+         ta_lista.setText(pcs.toString());
+    }//GEN-LAST:event_B_listarcrudnewMouseClicked
 
     /**
      * @param args the command line arguments
@@ -589,6 +593,7 @@ public class Pantalla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_Agregar;
     private javax.swing.JButton B_Ingresar;
+    private javax.swing.JButton B_listarcrudnew;
     private javax.swing.JFrame CRUD;
     private javax.swing.JFrame Ingresar;
     private javax.swing.JSpinner S_capram;
