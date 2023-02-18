@@ -4,7 +4,9 @@
  */
 package gabrielamontes_examen1p2;
 
+import static gabrielamontes_examen1p2.Pantalla.entrada;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -393,7 +395,7 @@ public class Pantalla extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(102, 0, 102));
         jTabbedPane1.setForeground(new java.awt.Color(204, 204, 255));
 
-        B_Agregar.setText("Agregar");
+        B_Agregar.setText("CRUD");
         B_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B_AgregarActionPerformed(evt);
@@ -461,13 +463,35 @@ public class Pantalla extends javax.swing.JFrame {
        CRUD.setVisible(false);
       this.setVisible(false);
         String b=tf_ipingresado.getText();
+        PC f=new PC();
+        for (PC pc : pcs) {
+            if (b.equals(pc.getIP())) {
+                f=pc;
+            }
+        }
+        
+        boolean existe=false;
+        for (PC pc : pcs) {
+            if (tf_ipingresado.equals(pc.getIP())) {
+                existe=true;
+            }
+        }
+        if (existe==false) {
+                 System.out.println("Pinging to "+tf_ipingresado+" with 32 bits of data: ");
+                 for (int i = 0; i < 4; i++) {
+                     System.out.println("Request timed out");
+                 }
+                 System.out.println("Ping statistics for "+tf_ipingresado+": ");
+                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
+                 System.out.println(f.getHostname()+"#");
+        }
        PC p=new PC();
         for (PC pc : pcs) {
             if (pc.getIP().equals(b)) {
                 p=pc;
             }
         }
-        System.out.println(p.getHostname()+" #");
+        entrada(pcs, p);
     }//GEN-LAST:event_b_buscaripMouseClicked
 
     private void agregar_escritorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_escritorioMouseClicked
@@ -533,8 +557,13 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void b_borrarcrudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_borrarcrudMouseClicked
        int pos=Integer.parseInt(s_pos.getValue().toString());
+        if (pos<pcs.size()) {
        pcs.remove(pos);
        JOptionPane.showConfirmDialog(this, "PC eliminada");
+    } else{
+             JOptionPane.showConfirmDialog(this, "Posicion no existe");
+        }                                        
+       
     }//GEN-LAST:event_b_borrarcrudMouseClicked
 
     private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
@@ -645,4 +674,26 @@ public class Pantalla extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 //ArrayLists
     ArrayList<PC> pcs=new ArrayList();
+    public static void entrada(ArrayList<PC> pcs, PC pc){
+        Scanner entrada=new Scanner(System.in);
+        System.out.println("Ingrese el nuevo ip");
+        String d=entrada.nextLine();
+         boolean existe=false;
+        for (PC p : pcs) {
+            if (d.equals(pc.getIP())) {
+                existe=true;
+            }
+        }
+        if (existe==false) {
+                 System.out.println("Pinging to "+d+" with 32 bits of data: ");
+                 for (int i = 0; i < 4; i++) {
+                     System.out.println("Request timed out");
+                 }
+                 System.out.println("Ping statistics for "+d+": ");
+                 System.out.println("Packets: Sent=4, received= 0, Lost=4(100% loss)");
+                 System.out.println(pc.getHostname()+"#");
+        }
+        pc.ping (d, pc);
+      
+    }
 }
